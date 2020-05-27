@@ -6,6 +6,8 @@ const Env = use('Env')
 /** @type {import('@adonisjs/ignitor/src/Helpers')} */
 const Helpers = use('Helpers')
 
+const DATABASE_URL = Env.get('DATABASE_URL')
+
 module.exports = {
   /*
   |--------------------------------------------------------------------------
