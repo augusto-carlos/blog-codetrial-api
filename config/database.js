@@ -8,6 +8,8 @@ const Helpers = use('Helpers')
 
 const DATABASE_URL = Env.get('DATABASE_URL')
 
+console.log(DATABASE_URL.username)
+
 module.exports = {
   /*
   |--------------------------------------------------------------------------
