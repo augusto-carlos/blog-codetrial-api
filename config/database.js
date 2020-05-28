@@ -6,9 +6,6 @@ const Env = use('Env')
 /** @type {import('@adonisjs/ignitor/src/Helpers')} */
 const Helpers = use('Helpers')
 
-const tst = Env.get('DB_HOST')
-console.log(tst)
-
 module.exports = {
   /*
   |--------------------------------------------------------------------------
@@ -79,7 +76,7 @@ module.exports = {
       host: Env.get('DB_HOST', 'localhost'),
       port: Env.get('DB_PORT', '5432'),
       user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', ''),
+      password: Env.get('DB_PASSWORD', 'blog_database'),
       database: Env.get('DB_DATABASE', 'adonis')
     },
     debug: Env.get('DB_DEBUG', false)
