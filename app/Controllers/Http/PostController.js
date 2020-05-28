@@ -35,7 +35,7 @@ class PostController {
    * @param {Response} ctx.response
    */
   async store({ request, auth }) {
-    const data = request.only(['title', 'slug', 'content'])
+    const data = request.only(['title', 'slug', 'content', 'category_id'])
     const {id:user_id} = await auth.getUser()
 
     const post = Post.create({...data})
