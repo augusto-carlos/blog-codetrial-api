@@ -20,8 +20,7 @@ class CategoryController {
    * @param {View} ctx.view
    */
   async index () {
-    //const categories = await Category.query().with('posts').fetch()
-    const categories = await Category.all()
+    const categories = await Category.query().with('posts').fetch()
 
     return categories
   }
