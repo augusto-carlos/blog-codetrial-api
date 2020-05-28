@@ -39,7 +39,7 @@ class PostController {
 
     const post = Post.create({data})
 
-    return {user_id, ...post}
+    return {post}
   }
 
   /**
