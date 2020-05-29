@@ -21,8 +21,8 @@ class PostController {
    */
   async index() {
     //const posts = await Post.query().with('category').with('author').with('author').fetch()
-    //const posts = await Post.query().with('category').fetch()
-    const posts = await Post.all()
+    const posts = await Post.query().with('author').fetch()
+    //const posts = await Post.all()
 
     return posts
   }
