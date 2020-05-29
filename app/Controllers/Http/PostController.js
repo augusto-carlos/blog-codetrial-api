@@ -39,7 +39,7 @@ class PostController {
     const data = request.only(['title', 'slug', 'content'])
     const {id:user_id} = await auth.getUser()
 
-    const post = Post.create(data)
+    const post = Post.create({user_id, ...data})
 
     return post
   }
