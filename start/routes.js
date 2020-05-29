@@ -22,6 +22,8 @@ Route.get('/', () => {
 Route.post('/register', 'AuthController.register')
 Route.post('/authenticate', 'AuthController.authenticate')
 
+Route.post('/users', 'UserController.index')
+
 Route.group(() => {
   Route.resource('categories', 'CategoryController').apiOnly().except('update')
   Route.resource('posts', 'PostController').apiOnly().except('update').middleware('auth')
