@@ -3,6 +3,7 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
+/** @typedef {import('@adonisjs/auth/src/Schemes/Session')} AuthSession */
 
 const Post = use('App/Models/Post')
 
@@ -20,9 +21,7 @@ class PostController {
    * @param {View} ctx.view
    */
   async index() {
-    //const posts = await Post.query().with('category').with('author').with('author').fetch()
-    const posts = await Post.query().with('author').fetch()
-    //const posts = await Post.all()
+    const posts = await Post.query().with('category').with('author').with('author').fetch()
 
     return posts
   }
@@ -34,9 +33,10 @@ class PostController {
    * @param {object} ctx
    * @param {Request} ctx.request
    * @param {Response} ctx.response
+   * @param {AuthSession} ctx.auth
    */
   async store({ request, auth }) {
-    const data = request.only(['title', 'slug', 'content'])
+    const data = request.only(['title', 'slug', 'content', 'category_id'])
     const {id:user_id} = await auth.getUser()
 
     const post = Post.create({user_id, ...data})
