@@ -8,23 +8,25 @@ class PostSchema extends Schema {
   up() {
     this.create('posts', (table) => {
       table.increments()
-      table.integer("user_id")
-        .unsigned()
-        .notNullable()
-        .references("id")
-        .inTable("users")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE")
+
       table.string('title', 120).notNullable()
       table.string('slug', 240).notNullable()
       table.text('content', 1000).notNullable()
-      table.integer("category_id")
-        .unsigned()
-        .notNullable()
+
+      table.integer("user_id")
         .references("id")
-        .inTable("categories")
+        .inTable("users")
+        .notNullable()
         .onUpdate("CASCADE")
         .onDelete("CASCADE")
+
+      table.integer("category_id")
+        .references("id")
+        .inTable("categories")
+        .notNullable()
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE")
+
       table.timestamps()
     })
   }

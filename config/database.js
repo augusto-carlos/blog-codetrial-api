@@ -76,8 +76,8 @@ module.exports = {
       host: Env.get('DB_HOST', 'localhost'),
       port: Env.get('DB_PORT', '5432'),
       user: Env.get('DB_USER', 'root'),
-      password: Env.get('DB_PASSWORD', 'blog_database'),
-      database: Env.get('DB_DATABASE', 'adonis')
+      password: Env.get('DB_PASSWORD', '1234'),
+      database: Env.get('DB_DATABASE', 'blog-codetrial')
     },
     debug: Env.get('DB_DEBUG', false)
   }
